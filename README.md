@@ -264,3 +264,4 @@ Collaborate with the development team to kickstart the first phase of design and
 ---
 
 This in-depth design document provides a clear path for developers, designers, and stakeholders, ensuring a successful implementation of AYEONE's website.
+# A1
