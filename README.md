@@ -1,267 +1,191 @@
-## **AYEONE Hair Stylist Website - Detailed Design Document**
+# AYEONE - Professional Hairstyling Services Website
+
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Project Goals](#project-goals)
+- [Audience & Use Cases](#audience--use-cases)
+- [Technical Stack](#technical-stack)
+- [Functional Requirements](#functional-requirements)
+- [Non-Functional Requirements](#non-functional-requirements)
+- [Development Phases & Timeline](#development-phases--timeline)
+- [Testing Strategy](#testing-strategy)
+- [Future Scalability & Feature Roadmap](#future-scalability--feature-roadmap)
+- [Project Roles & Responsibilities](#project-roles--responsibilities)
+- [Conclusion](#conclusion)
 
 ---
 
-### **1. Project Overview**
+## Project Overview
 
-**Project Name:**  
-AYEONE - Professional Hairstyling Services Website
+**Project Name**: AYEONE - Professional Hairstyling Services Website  
+**Frameworks & Languages**: React (Frontend), Node.js/Express (Backend)  
+**Version**: 2.0
 
-**Prepared By:**  
-UI/UX Development Team
-
-**Date Created:**  
-October 14, 2024
-
-**Version:**  
-1.0
+AYEONE is a professional hairstyling service in Delray Beach, FL. This website will represent the AYEONE brand, showcase portfolio work, and allow clients to view services and book appointments. The site will be built using React for the frontend and Node.js/Express for the backend, with a focus on scalability, user experience, and performance.
 
 ---
 
-### **2. Executive Summary**
+## Project Goals
 
-AYEONE is a hairstyling brand aiming to create an online platform that serves as a digital showcase for their unique styling skills, service offerings, and client experiences. The website's primary goal is to **attract new clients**, **provide booking functionality**, and **build the AYEONE brand**. The website must reflect the **creativity, precision, and professionalism** of AYEONE's services. 
-
-This document outlines the design, structure, and functional aspects of the website to guide developers, designers, and stakeholders throughout the project.
-
----
-
-### **3. Project Goals**
-
-1. **Brand Representation**  
-   - Showcase the essence of AYEONE through high-quality images, modern typography, and a clean yet bold color palette. The design should be contemporary, aligning with the latest trends in fashion and beauty.
-
-2. **User-Friendly Navigation & Experience**  
-   - Provide a seamless, intuitive user experience (UX) where visitors can quickly find relevant information and services, view the portfolio, and book appointments.
-
-3. **Client Acquisition & Retention**  
-   - Convert visitors into paying customers by highlighting client testimonials, a comprehensive service list, and easy-to-use booking forms. 
-
-4. **Portfolio & Testimonials**  
-   - Build credibility by prominently displaying real-life examples of AYEONE's work alongside client testimonials, with the ability to update this section regularly.
-
-5. **Scalability**  
-   - The website should be designed with scalability in mind to allow for future growth, including additional services, e-commerce integration, or even a client dashboard for appointment management.
-
-6. **Responsive & Performance-Optimized**  
-   - Ensure the website is fully responsive and optimized for fast loading times across all devices, browsers, and screen sizes.
+1. **Brand Representation**: Visually represent AYEONE’s unique style.
+2. **User Experience**: Ensure a seamless, engaging experience.
+3. **Client Conversion**: Drive bookings with service highlights and CTAs.
+4. **Portfolio Showcase**: Display stylist expertise with an organized gallery.
+5. **Scalability**: Prepare for e-commerce, client accounts, and loyalty programs.
+6. **Performance Optimization**: Ensure fast load times, responsiveness, and optimized SEO.
 
 ---
 
-### **4. Audience & Use Cases**
+## Audience & Use Cases
 
-**Primary Audience:**  
-- **New Clients:**  
-  Potential customers who want to learn more about AYEONE's services and book an appointment.
-  
-- **Returning Clients:**  
-  Existing customers looking to rebook services, view updates in the portfolio, or refer AYEONE to others.
-  
-- **Local Community:**  
-  Individuals in the local area (Delray Beach and surrounding areas) searching for quality hairstyling services.
+### Primary Audience
+- **New Clients**: Individuals seeking information on AYEONE services.
+- **Returning Clients**: Clients rebooking or checking service updates.
 
-**Secondary Audience:**  
-- **Collaborators/Partners:**  
-  Stylists, beauty influencers, and salons looking to partner with AYEONE for events or collaborations.
-  
-- **Media/Influencers:**  
-  Individuals looking to feature AYEONE in magazines, blogs, or social media promotions.
+### Secondary Audience
+- **Collaborators**: Beauty professionals interested in partnerships.
+- **Media**: Influencers and bloggers interested in showcasing AYEONE.
 
 ---
 
-### **5. Design & Functional Specifications**
+## Technical Stack
 
-#### **5.1 Branding & Aesthetic**
+### Frontend
+- **React.js**: Component-based UI and state management.
+- **React Router**: For single-page application routing.
+- **Axios**: API calls to the backend.
+- **Styled-Components** or **CSS Modules**: CSS-in-JS styling.
 
-AYEONE's website must evoke a sense of both modernity and timeless beauty. The layout should be clean, with high-impact visuals, soft edges, and well-spaced content. The overall tone should combine a bold yet elegant look, appealing to customers seeking high-end hairstyling services.
+### Backend
+- **Node.js & Express**: API creation, server logic.
+- **MongoDB (or Firebase)**: Database for client and booking data.
+- **JSON Web Tokens (JWT)**: Secure authentication for future user accounts.
 
-##### **Color Palette**
-
-| Color Purpose        | Color Code | Description & Use Cases                    |
-|----------------------|------------|-------------------------------------------|
-| **Primary Color**     | `#2f3542`  | Dark neutral used for headers, footer, buttons |
-| **Secondary Color**   | `#f1f2f6`  | Light grey for backgrounds and section dividers |
-| **Accent Color**      | `#ffffff`  | Pure white used for text, cards, and CTA sections |
-| **Highlight Color**   | `#ff4757`  | Bright red for CTA buttons, hover effects |
-| **Neutral Color**     | `#576574`  | Light blue-grey for borders, form fields, and background tones |
-
-##### **Typography**
-
-- **Primary Font:**  
-  *Montserrat* or *Roboto* - Used for headers and high-visibility text. These fonts convey modernity and professionalism.
-  
-- **Secondary Font:**  
-  *Lora* or *Playfair Display* - Used for body text, testimonials, and quotes. These fonts exude elegance and complement the primary font's modern look.
-
-**Font Sizes:**
-- **Heading 1 (H1):** 48px (32px on mobile)
-- **Heading 2 (H2):** 36px (28px on mobile)
-- **Heading 3 (H3):** 28px (24px on mobile)
-- **Body Text:** 16px (14px on mobile)
-- **Button Text:** 18px
-
-##### **Imagery**
-The visual appeal of the website will rely heavily on high-quality images. AYEONE’s hairstyling work should be showcased prominently through:
-
-- **Hero Images:** Full-width images for maximum impact, showcasing hairstyling in action.
-- **Service Images:** Clear images representing each service.
-- **Portfolio:** A gallery-style layout with high-quality photos of clients, stylized hair, and finished looks.
-  
-Images should be optimized for web without sacrificing quality (use of WebP or optimized JPG/PNG formats).
+### Hosting & Deployment
+- **Frontend**: Netlify or Vercel (CI/CD).
+- **Backend**: Heroku or DigitalOcean.
+- **Database**: MongoDB Atlas (for cloud-hosted MongoDB) or Firebase.
 
 ---
 
-#### **5.2 Website Components**
+## Functional Requirements
 
-##### **5.2.1 Hero Section**
+### Frontend Components (React)
 
-- **Purpose:**  
-  The hero section should grab the visitor’s attention with a powerful headline and CTA. It features a full-screen background image showcasing AYEONE’s signature work.
+1. **Home Page** (`/`)
+   - Hero section with CTA (“Book Now”) button.
+   - Navigation bar with links to main pages.
+   - Featured services and testimonials section.
 
-- **Features:**  
-  - A large, bold heading: "Where Style Meets Perfection."
-  - Sub-heading: "Experience the AYEONE Difference."
-  - CTA button: "Book Now" linked to the booking form.
-  
-- **Future Expansion:**  
-  - A video background option for more interactivity and brand engagement.
+2. **About Page** (`/about`)
+   - AYEONE brand story and stylist bio.
+   - Embedded promotional video.
 
-##### **5.2.2 About Section**
+3. **Services Page** (`/services`)
+   - List of services with descriptions and pricing.
+   - CTA for booking each service.
 
-- **Purpose:**  
-  Provide visitors with insight into AYEONE’s mission, background, and expertise. 
+4. **Portfolio Page** (`/portfolio`)
+   - Gallery component with filter options.
+   - Lightbox for full-size images.
 
-- **Features:**  
-  - Text introducing AYEONE and the hairstylist’s unique approach to fashion and beauty.
-  - A secondary image of the stylist in action.
-  
-- **Future Expansion:**  
-  - Embedded promotional videos.
-  - Collaborator testimonials.
+5. **Testimonials Page** (`/testimonials`)
+   - Testimonial carousel and option to leave a review.
 
-##### **5.2.3 Services Section**
+6. **Booking Page** (`/book`)
+   - Booking form with fields for user details and preferred date.
+   - Integrated date picker and backend calendar.
 
-- **Purpose:**  
-  Detail the different services AYEONE offers, such as haircuts, coloring, and styling, with visual aids for each.
+7. **Contact Page** (`/contact`)
+   - Contact form, Google Maps integration, and social media links.
 
-- **Features:**  
-  - List of services with detailed descriptions.
-  - Pricing for each service.
-  - CTA button for booking a specific service.
+### Backend (Node.js & Express)
 
-- **Future Expansion:**  
-  - Addition of a service configurator where users can select customizations and receive quotes in real-time.
-  - Reviews attached to specific services.
+1. **API Endpoints**
+   - `/api/services`: GET all available services.
+   - `/api/bookings`: POST new bookings, GET booking availability.
+   - `/api/testimonials`: POST new testimonials (optional).
+   - `/api/contact`: POST contact form submissions.
 
-##### **5.2.4 Portfolio Section**
-
-- **Purpose:**  
-  Showcase AYEONE's finest work through a gallery format, providing potential clients with a visual representation of what to expect.
-
-- **Features:**  
-  - Filterable gallery allowing users to browse by service type (e.g., cuts, coloring).
-  - Hover effect to zoom or display additional information.
-  
-- **Future Expansion:**  
-  - Lightbox or modal window for fullscreen image previews.
-  - Video content to demonstrate the hairstyling process.
-
-##### **5.2.5 Testimonials Section**
-
-- **Purpose:**  
-  Build trust and credibility through client testimonials.
-
-- **Features:**  
-  - Rotating carousel of client testimonials.
-  - CTA to leave a review (possibly linking to Google Reviews or Yelp).
-  
-- **Future Expansion:**  
-  - API integration to pull live reviews from platforms like Google or Yelp.
-
-##### **5.2.6 Contact & Booking Section**
-
-- **Purpose:**  
-  Enable visitors to easily book appointments or get in touch with AYEONE.
-
-- **Features:**  
-  - Contact form with fields for name, email, phone number, and preferred service date.
-  - A booking calendar that integrates with a scheduling API (e.g., Google Calendar).
-  - Google Maps integration showing AYEONE’s location.
-
-- **Future Expansion:**  
-  - A chatbot for answering quick queries.
-  - Integration with WhatsApp for direct communication.
-
-##### **5.2.7 Footer**
-
-- **Purpose:**  
-  Provide essential links and social media profiles for further engagement.
-
-- **Features:**  
-  - Quick links to services, about, and contact pages.
-  - Social media icons with links to Instagram and Facebook.
-  
-- **Future Expansion:**  
-  - Newsletter signup form.
-  - Blog link for hair care tips and style inspiration.
+2. **Database Schemas** (MongoDB)
+   - **User Schema**: Stores user data (optional for future).
+   - **Booking Schema**: Details of each booking.
+   - **Testimonial Schema**: Stores client reviews.
 
 ---
 
-### **6. Performance, Optimization, & SEO**
+## Non-Functional Requirements
 
-#### **6.1 Performance Optimization**
+### Performance
+- **Lazy Loading**: Load images/components as needed.
+- **Image Compression**: Use WebP format for high-quality, low-size images.
+- **Minification**: Minify CSS, JS, and HTML for faster load times.
 
-- **Image Compression:**  
-  Images will be served in optimized formats (WebP, compressed JPG/PNG) to ensure faster load times.
+### SEO
+- **Meta Tags & Descriptions**: Keywords for hairstyling services.
+- **Alt Tags**: Descriptive tags for images.
+- **Structured Data**: JSON-LD schema for LocalBusiness.
 
-- **Lazy Loading:**  
-  Implement lazy loading for images and content below the fold, ensuring that only essential elements are loaded on the initial page render.
-
-- **Minification:**  
-  Minify CSS, JavaScript, and HTML to reduce file sizes and improve performance.
-
-#### **6.2 SEO (Search Engine Optimization)**
-
-- **Meta Tags:**  
-  Use descriptive meta tags with keywords relevant to hairstyling, beauty services, and the local market (Delray Beach).
-
-- **Headings Structure:**  
-  Proper heading hierarchy will be followed to optimize search engine rankings (H1 for page title, H2 for sections, etc.).
-
-- **Alt Tags for Images:**  
-  All images will have descriptive alt attributes to improve SEO and accessibility.
-
-#### **6.3 Accessibility
-
-**
-
-- **Keyboard Navigation:**  
-  Ensure all interactive elements (buttons, links, forms) are navigable via keyboard.
-
-- **ARIA Attributes:**  
-  Implement ARIA attributes where necessary to improve screen reader compatibility.
+### Accessibility
+- **Keyboard Navigation**: Ensure all interactive elements are keyboard-accessible.
+- **ARIA Labels**: For improved screen reader compatibility.
 
 ---
 
-### **7. Future Roadmap**
+## Development Phases & Timeline
 
-| Phase               | Tasks & Features                                                    | Estimated Timeline |
-|---------------------|---------------------------------------------------------------------|--------------------|
-| **Phase 1:** Design | Finalize high-fidelity mockups, confirm branding, and start front-end layout | Week 1-2          |
-| **Phase 2:** Build  | Develop HTML, CSS, and core functionality (static pages, forms)      | Week 3-4           |
-| **Phase 3:** Launch | Optimize, test for performance, deploy to live environment           | Week 5-6           |
-| **Phase 4:** Extend | Add future features: Dynamic reviews, booking integration            | Post-launch        |
-
----
-
-### **8. Conclusion**
-
-This website will not only act as AYEONE’s digital home but also as a tool for growing the brand, converting leads into clients, and providing a seamless booking experience. Scalability and future-proofing ensure the site can grow alongside the business, incorporating features like e-commerce, loyalty programs, and customer dashboards.
-
-**Next Steps:**  
-Collaborate with the development team to kickstart the first phase of design and development. Detailed prototypes and wireframes will be shared for review, ensuring alignment with brand vision and user goals.
+| **Phase**          | **Tasks**                                              | **Duration** |
+|--------------------|--------------------------------------------------------|--------------|
+| **Phase 1**        | Planning, wireframing, and design mockups              | 1-2 Weeks    |
+| **Phase 2**        | React frontend setup, component development (Home, About, Services) | 2-3 Weeks   |
+| **Phase 3**        | Backend setup (Node, Express), API dev, MongoDB integration | 2 Weeks     |
+| **Phase 4**        | Remaining frontend components (Portfolio, Booking)     | 1-2 Weeks    |
+| **Phase 5**        | Testing (Unit, Integration, and UAT)                   | 1 Week       |
+| **Phase 6**        | Deployment and Final QA                                | 1 Week       |
+| **Phase 7**        | Post-launch monitoring, bug fixes, optimizations       | Ongoing      |
 
 ---
 
-This in-depth design document provides a clear path for developers, designers, and stakeholders, ensuring a successful implementation of AYEONE's website.
-# A1
+## Testing Strategy
+
+1. **Frontend Testing**
+   - Use **Jest** and **React Testing Library** for unit tests on components.
+   - Integration tests for form submission and API calls.
+
+2. **Backend Testing**
+   - **Mocha & Chai** for API endpoint testing.
+   - Integration tests to verify data flow from frontend to backend.
+
+3. **Performance Testing**
+   - Measure load times and render speeds using **Lighthouse**.
+   - **New Relic** or similar for live performance monitoring.
+
+4. **Accessibility Testing**
+   - Use **Axe Accessibility** tools for common accessibility issues.
+
+---
+
+## Future Scalability & Feature Roadmap
+
+1. **Phase 1**: E-Commerce Integration (Stripe/PayPal) for payments.
+2. **Phase 2**: User Accounts for managing bookings.
+3. **Phase 3**: Loyalty Program with points for referrals and repeat visits.
+4. **Phase 4**: Blog Section for SEO and engagement (e.g., styling tips).
+
+---
+
+## Project Roles & Responsibilities
+
+- **Project Manager**: Timeline, resource allocation, stakeholder communication.
+- **Frontend Developer**: Builds React components, state management.
+- **Backend Developer**: Develops API, server logic, and data storage.
+- **UI/UX Designer**: Creates layout, mockups, and ensures brand consistency.
+- **QA Engineer**: Testing and standards compliance.
+- **SEO Specialist**: Optimizes SEO and content structure.
+
+---
+
+## Conclusion
+
+This project will meet AYEONE’s needs for brand representation, client booking, and a seamless user experience. The React/Node.js framework supports scalability, maintainability, and performance, making the website adaptable as AYEONE grows.
